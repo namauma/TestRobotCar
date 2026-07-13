@@ -1,22 +1,21 @@
 /**
- * モータの種類
- */
-export enum Motor {
-    //% block="左"
-    Left = 0,
-
-    //% block="右"
-    Right = 1,
-
-    //% block="両方"
-    Both = 2
-}
-
-/**
  * モータ制御
  */
 //% color=#0078D7 icon="\uf013"
 namespace MotorControl {
+    /**
+     * モータの種類
+     */
+    export enum Motor {
+        //% block="左"
+        Left = 0,
+
+        //% block="右"
+        Right = 1,
+
+        //% block="両方"
+        Both = 2
+    }
 
     /**
      * モータを回す
