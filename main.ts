@@ -19,7 +19,7 @@ namespace robotcar {
     /**
      * モータを回す
      */
-    //% block="モータ $motor を $speed % で回す"
+    //% block="てst $motor を $speed % で回す"
     //% speed.min=-100
     //% speed.max=100
     //% speed.defl=10
