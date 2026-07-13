@@ -1,8 +1,5 @@
-//% color=#ff6600 icon="\uf1b9"
-namespace robotcar {
-
     //% block="モータ"
-    export enum Motor {
+   export enum Motor {
         //% block="左"
         Left = 0,
 
@@ -13,13 +10,17 @@ namespace robotcar {
         Both = 2
     }
 
+//% color=#ff6600 icon="\uf1b9"
+namespace robotcar {
+
+
     /**
      * モータを回す
      */
     //% block="モータ %motor を %speed % で回す"
     //% speed.min=-100
     //% speed.max=100
-    //% speed.defl=10
+    //% speed.defl=0
     export function motor(motor: Motor, speed: number): void {
 
         if (speed > 100) speed = 100
