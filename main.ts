@@ -1,15 +1,17 @@
-    //% block="モータ"
-   export enum Motor {
-        //% block="左"
-        Left = 0,
+/**
+ * モータ選択
+ */
+//% blockNamespace=robotcar
+export enum Motor {
+    //% block="左"
+    Left,
 
-        //% block="右"
-        Right = 1,
+    //% block="右"
+    Right,
 
-        //% block="両方"
-        Both = 2
-    }
-
+    //% block="両方"
+    Both
+}
 //% color=#ff6600 icon="\uf1b9"
 namespace robotcar {
 
