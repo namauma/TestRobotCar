@@ -25,7 +25,7 @@ namespace MotorControl {
     //% block="モータ $motor を速度 $speed で回す"
     //% speed.min=-100
     //% speed.max=100
-    //% speed.defl=0
+    //% speed.defl=10
     export function runMotor(motor: Motor, speed: number): void {
 
         // ここに実際のモータ制御を書く
