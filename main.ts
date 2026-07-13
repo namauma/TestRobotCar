@@ -1,8 +1,8 @@
 /**
- * モータ選択
+ * モータの種類
  */
-//% block="モータ"
-export enum Motor {
+//% blockNamespace=Motor
+enum Motor {
     //% block="左"
     Left = 0,
 
@@ -13,88 +13,38 @@ export enum Motor {
     Both = 2
 }
 
-//% color=#ff6600 icon="\uf1b9"
-namespace robotcar {
+/**
+ * モータ制御
+ */
+//% color=#0078D7 icon="\uf013"
+namespace MotorControl {
 
     /**
      * モータを回す
+     * @param motor モータ
+     * @param speed 速度
      */
-    //% block="てst $motor を $speed % で回す"
+    //% block="モータ $motor を速度 $speed で回す"
     //% speed.min=-100
     //% speed.max=100
-    //% speed.defl=10
-    export function motor(motor: Motor, speed: number): void {
+    //% speed.defl=0
+    //% speed.shadow="slider"
+    export function runMotor(motor: Motor, speed: number): void {
 
-        if (speed > 100) speed = 100
-        if (speed < -100) speed = -100
-
-        let pwm = Math.idiv(Math.abs(speed) * 1023, 100)
-
-        if (speed == 0) {
-            pins.digitalWritePin(DigitalPin.P0, 0)
-            pins.digitalWritePin(DigitalPin.P3, 0)
-
-            pins.digitalWritePin(DigitalPin.P1, 0)
-            pins.digitalWritePin(DigitalPin.P7, 0)
-
-            pins.analogWritePin(AnalogPin.P4, 0)
-            pins.analogWritePin(AnalogPin.P8, 0)
-
-            return
-        }
-
-        function setRight() {
-            if (speed >= 0) {
-                pins.digitalWritePin(DigitalPin.P0, 0)
-                pins.digitalWritePin(DigitalPin.P3, 1)
-            } else {
-                pins.digitalWritePin(DigitalPin.P0, 1)
-                pins.digitalWritePin(DigitalPin.P3, 0)
-            }
-
-            pins.analogWritePin(AnalogPin.P4, pwm)
-        }
-
-        function setLeft() {
-            if (speed >= 0) {
-                pins.digitalWritePin(DigitalPin.P1, 0)
-                pins.digitalWritePin(DigitalPin.P7, 1)
-            } else {
-                pins.digitalWritePin(DigitalPin.P1, 1)
-                pins.digitalWritePin(DigitalPin.P7, 0)
-            }
-
-            pins.analogWritePin(AnalogPin.P8, pwm)
-        }
+        // ここに実際のモータ制御を書く
 
         switch (motor) {
             case Motor.Left:
-                setLeft()
-                break
+                // 左モータ
+                break;
 
             case Motor.Right:
-                setRight()
-                break
+                // 右モータ
+                break;
 
             case Motor.Both:
-                setLeft()
-                setRight()
-                break
+                // 左右モータ
+                break;
         }
-    }
-
-    /**
-     * モータ停止
-     */
-    //% block="モータ停止"
-    export function stop(): void {
-        pins.analogWritePin(AnalogPin.P4, 0)
-        pins.analogWritePin(AnalogPin.P8, 0)
-
-        pins.digitalWritePin(DigitalPin.P0, 0)
-        pins.digitalWritePin(DigitalPin.P3, 0)
-
-        pins.digitalWritePin(DigitalPin.P1, 0)
-        pins.digitalWritePin(DigitalPin.P7, 0)
     }
 }
