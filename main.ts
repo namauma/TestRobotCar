@@ -1,16 +1,11 @@
-/**
- * モータ選択
- */
-//% blockNamespace=robotcar
+//% block="モータ"
 export enum Motor {
     //% block="左"
-    Left,
-
+    Left = 0,
     //% block="右"
-    Right,
-
+    Right = 1,
     //% block="両方"
-    Both
+    Both = 2
 }
 //% color=#ff6600 icon="\uf1b9"
 namespace robotcar {
@@ -19,7 +14,7 @@ namespace robotcar {
     /**
      * モータを回す
      */
-    //% block="モータ %motor を %speed % で回す"
+    //% block="モータ $motor を $speed % で回す"
     //% speed.min=-100
     //% speed.max=100
     //% speed.defl=0
