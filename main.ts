@@ -19,7 +19,7 @@ namespace robotcar {
     //% block="モータ %motor を %speed % で回す"
     //% speed.min=-100
     //% speed.max=100
-    //% speed.defl=0
+    //% speed.defl=10
     export function motor(motor: Motor, speed: number): void {
 
         if (speed > 100) speed = 100
