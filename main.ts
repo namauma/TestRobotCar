@@ -1,15 +1,20 @@
+/**
+ * モータ選択
+ */
 //% block="モータ"
 export enum Motor {
     //% block="左"
     Left = 0,
+
     //% block="右"
     Right = 1,
+
     //% block="両方"
     Both = 2
 }
+
 //% color=#ff6600 icon="\uf1b9"
 namespace robotcar {
-
 
     /**
      * モータを回す
@@ -23,7 +28,20 @@ namespace robotcar {
         if (speed > 100) speed = 100
         if (speed < -100) speed = -100
 
-        let pwm = Math.abs(speed) * 10.23
+        let pwm = Math.idiv(Math.abs(speed) * 1023, 100)
+
+        if (speed == 0) {
+            pins.digitalWritePin(DigitalPin.P0, 0)
+            pins.digitalWritePin(DigitalPin.P3, 0)
+
+            pins.digitalWritePin(DigitalPin.P1, 0)
+            pins.digitalWritePin(DigitalPin.P7, 0)
+
+            pins.analogWritePin(AnalogPin.P4, 0)
+            pins.analogWritePin(AnalogPin.P8, 0)
+
+            return
+        }
 
         function setRight() {
             if (speed >= 0) {
@@ -72,5 +90,11 @@ namespace robotcar {
     export function stop(): void {
         pins.analogWritePin(AnalogPin.P4, 0)
         pins.analogWritePin(AnalogPin.P8, 0)
+
+        pins.digitalWritePin(DigitalPin.P0, 0)
+        pins.digitalWritePin(DigitalPin.P3, 0)
+
+        pins.digitalWritePin(DigitalPin.P1, 0)
+        pins.digitalWritePin(DigitalPin.P7, 0)
     }
 }
