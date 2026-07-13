@@ -1,0 +1,11 @@
+{
+    "name": "TestRobotCar",
+    "description": "Test Robot Car",
+    "dependencies": {
+        "core": "*"
+    },
+    "files": [
+        "main.ts"
+    ],
+    "public": true
+}
